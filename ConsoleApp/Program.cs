@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using DAL;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -18,10 +20,17 @@ namespace ConsoleApp
             Console.WriteLine("Live");
             using (var ctx = new AppDbContext(_dbOptions.Options))
             {
-                
-                foreach (var game in ctx.Games)
+                Game game = ctx.Games
+                    .Include(u => u.Player1).ThenInclude(b => b.SelfBoard).ThenInclude(r => r.RowNodes).ThenInclude(n=>n.Nodes)
+                    .First(g => g.GameName == "Game5");
+                    
+                foreach (var r in game.Player1.SelfBoard.RowNodes)
                 {
-                    Console.WriteLine(game.GameName);
+                    foreach (var n in r.Nodes)
+                    {
+                        Console.Write(n.NodeValue.PadRight(3));
+                    }
+                    Console.WriteLine();
                 }
                 
             }
