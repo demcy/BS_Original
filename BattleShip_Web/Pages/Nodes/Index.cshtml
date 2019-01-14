@@ -1,0 +1,36 @@
+@page
+@model BattleShip_Web.Pages_Nodes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Node[0].NodeValue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Node) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NodeValue)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.NodeId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.NodeId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.NodeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

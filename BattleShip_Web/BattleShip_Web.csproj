@@ -1,0 +1,119 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+        <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.13" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core\Core.csproj" />
+      <ProjectReference Include="..\DAL\DAL.csproj" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+        <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Games\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Games\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Games\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Games\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Games\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Games\Play.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Users\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Users\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Users\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Users\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Users\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Boards\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Boards\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Boards\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Boards\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Boards\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\NodesLists\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\NodesLists\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\NodesLists\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\NodesLists\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\NodesLists\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Nodes\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Nodes\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Nodes\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Nodes\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Nodes\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\RowNodes\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\RowNodes\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\RowNodes\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\RowNodes\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\RowNodes\Index.cshtml" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Pages\Games\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Users\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Games\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\Boards\Index.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Create.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Details.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Pages\RowNodes\Index.cshtml" />
+    </ItemGroup>
+
+    
+
+</Project>

@@ -1,0 +1,49 @@
+@page
+@model BattleShip_Web.Pages_Games.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].GameName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].Player1.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].Player2.UserId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Game) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player1.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player2.UserId)
+            </td>
+            <td>
+                <a asp-page="./Play" asp-route-id="@item.GameId">Play</a> |
+                <a asp-page="./Edit" asp-route-id="@item.GameId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.GameId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.GameId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

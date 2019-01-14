@@ -1,0 +1,42 @@
+@page
+@model BattleShip_Web.Pages_Users.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].SelfBoard.BoardId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User[0].OppenentBoard.BoardId)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.User) {
+    <tr>
+        <td>@item.UserId</td>
+        <td>@item.SelfBoard.BoardId</td>
+        <td>@item.OppenentBoard.BoardId</td>
+        <td>
+            <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
+            <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
+            <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
