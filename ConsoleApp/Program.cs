@@ -22,8 +22,8 @@ namespace ConsoleApp
             {
                 Game game = ctx.Games
                     .Include(u => u.Player1).ThenInclude(b => b.SelfBoard).ThenInclude(r => r.RowNodes).ThenInclude(n=>n.Nodes)
-                    .First(g => g.GameName == "Game5");
-                    
+                    .First(g => g.GameName == "Game23");
+                Console.WriteLine(game.Player1.SelfBoard.RowNodes[0].Nodes[3].NodeValue);    
                 foreach (var r in game.Player1.SelfBoard.RowNodes)
                 {
                     foreach (var n in r.Nodes)

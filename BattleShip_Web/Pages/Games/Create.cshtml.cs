@@ -36,17 +36,22 @@ namespace BattleShip_Web.Pages_Games
             }
             
             NewGame ng = new NewGame();
-            Game.Player1.SelfBoard = ng.DefaultBoard();
+            Board b = ng.DefaultBoard();
+            ng.RandomBoard(b);
+            _context.Boards.Add(b);
+            Game.Player1.SelfBoard = b;//ng.DefaultBoard();
+            string a = Game.Player1.SelfBoard.RowNodes[0].Nodes[3].NodeValue;
             Game.Player1.OppenentBoard = ng.DefaultBoard();
             Game.Player2.SelfBoard = ng.DefaultBoard();
             Game.Player2.OppenentBoard = ng.DefaultBoard();
-            ng.RandomBoard(Game.Player1.SelfBoard);
-            ng.RandomBoard(Game.Player2.SelfBoard);
-            Game.Player1.OppenentBoard.RowNodes[0].Nodes[0].NodeValue = "a";
+            
+            //Game.Player1.OppenentBoard.RowNodes[0].Nodes[0].NodeValue = "a";
 
             _context.Games.Add(Game);
             await _context.SaveChangesAsync();
-
+            //ng.RandomBoard(Game.Player1.SelfBoard);
+            //ng.RandomBoard(Game.Player2.SelfBoard);
+            //await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }
     }
