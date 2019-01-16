@@ -14,5 +14,7 @@ namespace Domain
         
         [MaxLength(64)]
         public string GameName { get; set; }
+
+        public string GMove { get; set; } = "00";
     }
 }

@@ -33,6 +33,8 @@ namespace DAL.Migrations
                     b.Property<int>("GameId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("GMove");
+
                     b.Property<string>("GameName")
                         .HasMaxLength(64);
 
