@@ -9,12 +9,12 @@ namespace Core
 {
     public class NewGame
     {
-        /*private readonly DAL.AppDbContext _context;
+        private readonly DAL.AppDbContext _context;
 
         public NewGame(DAL.AppDbContext context)
         {
             _context = context;
-        }*/
+        }
         
         
         public Random Rand = new Random();
@@ -25,7 +25,7 @@ namespace Core
         
         //public List<RowNode> RowNodes { get; set; }
 
-        public Board DefaultBoard()
+        public Board DefaultBoard(bool def)
         {
             Board board = new Board();
             for (int i = 0; i < 10; i++)
@@ -35,10 +35,26 @@ namespace Core
                 {
                     rowNode.Nodes.Add(new Node());
                 }
+
+                _context.RowNodes.Add(rowNode);
+                _context.SaveChangesAsync();
                 board.RowNodes.Add(rowNode);
             }
 
-            return board;
+            if (def)
+            {
+                _context.Boards.Add(board);
+                _context.SaveChangesAsync();
+                return board;
+            }
+            else
+            {
+                RandomBoard(board);
+                _context.Boards.Add(board);
+                _context.SaveChangesAsync();
+                return board;
+            }
+                
         }
         
         public void RandomBoard(Board _board)

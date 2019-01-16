@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Core;
 using DAL;
 using Domain;
 using Microsoft.EntityFrameworkCore;
@@ -20,9 +21,53 @@ namespace ConsoleApp
             Console.WriteLine("Live");
             using (var ctx = new AppDbContext(_dbOptions.Options))
             {
+                //NewGame ng = new NewGame();
+                /*Board board = ng.DefaultBoard();
+                ng.RandomBoard(board);
+                foreach (var r in board.RowNodes)
+                {
+                    foreach (var n in r.Nodes)
+                    {
+                        Console.Write(n.NodeValue.PadRight(3));
+                    }
+                    Console.WriteLine("");
+                }
+
+                ctx.Boards.Add(board);
+                ctx.SaveChangesAsync();
+                Console.WriteLine("Save Sucsessful");*/
+
+                Board relBoard = ctx.Boards
+                    .Include(r => r.RowNodes).ThenInclude(n => n.Nodes)
+                    .FirstOrDefault(b => b.BoardId == 105);
+                foreach (var r in relBoard.RowNodes)
+                {
+                    foreach (var n in r.Nodes)
+                    {
+                        Console.Write(n.NodeValue.PadRight(3));
+                    }
+                    Console.WriteLine("");
+                }
+                   
+
+               
+                //Game.Player2.OppenentBoard = ng.DefaultBoard();
+            
+                //Game.Player1.OppenentBoard.RowNodes[0].Nodes[0].NodeValue = "a";
+
+                //_context.Games.Add(Game);
+               // await _context.SaveChangesAsync();
+               // Board b = ng.DefaultBoard();
+               // _context.Boards.Add(b);
+              
+                
+                
+                
+                
+                
                 Game game = ctx.Games
                     .Include(u => u.Player1).ThenInclude(b => b.SelfBoard).ThenInclude(r => r.RowNodes).ThenInclude(n=>n.Nodes)
-                    .First(g => g.GameName == "Game23");
+                    .First(g => g.GameName == "Game5");
                 Console.WriteLine(game.Player1.SelfBoard.RowNodes[0].Nodes[3].NodeValue);    
                 foreach (var r in game.Player1.SelfBoard.RowNodes)
                 {
