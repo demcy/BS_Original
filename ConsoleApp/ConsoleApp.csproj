@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ConsoleMenu\ConsoleMenu.csproj" />
       <ProjectReference Include="..\Core\Core.csproj" />
         <ProjectReference Include="..\DAL\DAL.csproj" />
     </ItemGroup>

@@ -11,16 +11,23 @@ namespace ConsoleApp
     class Program
     {
        
-        private static readonly DbContextOptionsBuilder<AppDbContext> _dbOptions = 
-            new DbContextOptionsBuilder<AppDbContext>()
-                .UseMySQL("server=alpha.akaver.com;database=student2018_andreskaver_BattleShipDataBase31;user=student2018;password=student2018");
+        
+        
+        
+        //private static readonly DbContextOptionsBuilder<AppDbContext> _dbOptions = 
+         //   new DbContextOptionsBuilder<AppDbContext>()
+          //      .UseMySQL("server=alpha.akaver.com;database=student2018_andreskaver_BattleShipDataBase31;user=student2018;password=student2018");
         
         static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("Live");
-            using (var ctx = new AppDbContext(_dbOptions.Options))
-            {
+            M1 m1 = new M1();
+            m1.DisplayM1();
+            //new PageInit().Run();
+            
+          //  Console.OutputEncoding = System.Text.Encoding.UTF8;
+           // Console.WriteLine("Live");
+          //  using (var ctx = new AppDbContext(_dbOptions.Options))
+          //  {
                 //NewGame ng = new NewGame();
                 /*Board board = ng.DefaultBoard();
                 ng.RandomBoard(board);
@@ -37,17 +44,17 @@ namespace ConsoleApp
                 ctx.SaveChangesAsync();
                 Console.WriteLine("Save Sucsessful");*/
 
-                Board relBoard = ctx.Boards
-                    .Include(r => r.RowNodes).ThenInclude(n => n.Nodes)
-                    .FirstOrDefault(b => b.BoardId == 105);
-                foreach (var r in relBoard.RowNodes)
-                {
-                    foreach (var n in r.Nodes)
-                    {
-                        Console.Write(n.NodeValue.PadRight(3));
-                    }
-                    Console.WriteLine("");
-                }
+                //Board relBoard = ctx.Boards
+               //     .Include(r => r.RowNodes).ThenInclude(n => n.Nodes)
+               //     .FirstOrDefault(b => b.BoardId == 105);
+               // foreach (var r in relBoard.RowNodes)
+               // {
+               //     foreach (var n in r.Nodes)
+               //     {
+               //         Console.Write(n.NodeValue.PadRight(3));
+               //     }
+              //      Console.WriteLine("");
+               // }
                    
 
                
@@ -65,7 +72,7 @@ namespace ConsoleApp
                 
                 
                 
-                Game game = ctx.Games
+                /*Game game = ctx.Games
                     .Include(u => u.Player1).ThenInclude(b => b.SelfBoard).ThenInclude(r => r.RowNodes).ThenInclude(n=>n.Nodes)
                     .First(g => g.GameName == "Game5");
                 Console.WriteLine(game.Player1.SelfBoard.RowNodes[0].Nodes[3].NodeValue);    
@@ -76,9 +83,9 @@ namespace ConsoleApp
                         Console.Write(n.NodeValue.PadRight(3));
                     }
                     Console.WriteLine();
-                }
+                }*/
                 
-            }
+            //}
 
 
 
