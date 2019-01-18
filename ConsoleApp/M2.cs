@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Core;
 using DAL;
 using Domain;
 using Microsoft.EntityFrameworkCore;
@@ -53,7 +54,7 @@ namespace ConsoleApp
             
             Console.WriteLine("Your Move or exit(x)");
             string move = Console.ReadLine();
-            M2Navigation(move);
+            M2Navigation(id, context, move);
 
 
 
@@ -61,7 +62,7 @@ namespace ConsoleApp
         }
 
 
-        public void M2Navigation(string m)
+        public void M2Navigation(int id, AppDbContext context, string m)
         {
             if (m == "x")
             {
@@ -77,18 +78,18 @@ namespace ConsoleApp
                     ((int) m.ToUpper()[0] >= 65 && (int) m.ToUpper()[0] < 75) &&
                     (v >= 1 && v < 11))
                 {
-                    ///nextmove = true;
+                    PlayGame pg = new PlayGame(context, id);
+                    pg.ShootBoard(m);
+                    DisplayM2(id, context);
                 }
                 else
                 {
-                    Output.DisplayPrompt("Please enter location like A1");
-                    value = ReadLocation();
+                    DisplayM2(id, context);
                 }
             }
             else
             {
-                Output.DisplayPrompt("Please enter location like A1");
-                value = ReadLocation();
+                DisplayM2(id, context);
             }
         }
     }
