@@ -15,6 +15,9 @@ namespace Domain
         [MaxLength(64)]
         public string GameName { get; set; }
 
-        public string GMove { get; set; } = "00";
+        [MaxLength(3)]
+        [MinLength(2)]
+        [RegularExpression(@"[A-Ja-j]{1}[1-9]{1}[0]?", ErrorMessage = "Shoot like A1")]
+        public string GMove { get; set; }
     }
 }

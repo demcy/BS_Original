@@ -23,14 +23,31 @@ namespace BattleShip_Web.Pages_Games
         [BindProperty]
         public Game Game { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public string Winner { get; set; }
+        
+
+        public async Task<IActionResult> OnGetAsync(int? id, int? uid)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Game = await _context.Games.FirstOrDefaultAsync(m => m.GameId == id);
+            Game = await _context.Games
+                .Include(u=>u.Player1)
+                .Include(v=>v.Player2)
+                .FirstOrDefaultAsync(m => m.GameId == id);
+            if (Game.Player1.UserId == uid)
+            {
+                Winner = "Player1 wins";
+            }
+            else
+            {
+                Winner = "Player2 wins";
+            }
+            
+           
+            
 
             if (Game == null)
             {

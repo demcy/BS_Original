@@ -40,7 +40,10 @@ namespace BattleShip_Web
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                .AddRazorPagesOptions(options => { options.Conventions.AddPageRoute("/Games/Index", "");})
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +65,8 @@ namespace BattleShip_Web
             app.UseCookiePolicy();
 
             app.UseMvc();
+            
+            
         }
     }
 }

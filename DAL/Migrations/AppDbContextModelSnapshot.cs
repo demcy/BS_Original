@@ -33,7 +33,8 @@ namespace DAL.Migrations
                     b.Property<int>("GameId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("GMove");
+                    b.Property<string>("GMove")
+                        .HasMaxLength(3);
 
                     b.Property<string>("GameName")
                         .HasMaxLength(64);
@@ -88,6 +89,8 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int?>("OppenentBoardBoardId");
+
+                    b.Property<int>("Score");
 
                     b.Property<int?>("SelfBoardBoardId");
 
