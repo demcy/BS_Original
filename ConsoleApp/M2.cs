@@ -15,6 +15,8 @@ namespace ConsoleApp
         
         public void DisplayM2(int id, AppDbContext context)
         {
+            
+            
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.Clear();
             
@@ -24,6 +26,16 @@ namespace ConsoleApp
                 .Include(u=>u.Player2).ThenInclude(b=>b.SelfBoard).ThenInclude(r=>r.RowNodes).ThenInclude(n=>n.Nodes)
                 .Include(v=>v.Player2).ThenInclude(p=>p.OppenentBoard).ThenInclude(t=>t.RowNodes).ThenInclude(m=>m.Nodes)
                 .FirstOrDefault(m => m.GameId == id);
+            
+            if (game.Player1.Score >= 15 | game.Player2.Score >= 15)
+            {
+                Console.WriteLine("You Win");
+            }
+            else
+            {
+                
+                
+            }
                 
             
             Console.WriteLine("SelfBoard");
