@@ -66,7 +66,8 @@ namespace ConsoleApp
         {
             if (m == "x")
             {
-                //nothing
+                M1 m1 = new M1();
+                m1.DisplayM1();
             }
             else if (m.Length!=0)
             {
